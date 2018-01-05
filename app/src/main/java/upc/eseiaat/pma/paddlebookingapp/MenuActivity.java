@@ -51,6 +51,7 @@ public class MenuActivity extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference(String.format("Reservation %d", id));
                 myRef.setValue(id);
+                myRef.child(String.format("hora %d", id)).setValue(id);
                 id++;
             }
         });
