@@ -1,6 +1,7 @@
 package upc.eseiaat.pma.paddlebookingapp;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -20,6 +24,8 @@ public class MenuActivity extends AppCompatActivity {
     private String player_1_data="Julia";
     private String player_2_data="Marta";
     private int pos;
+    private int id=0;
+    private FloatingActionButton btn_add_reservation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,7 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         ListView list = (ListView) findViewById(R.id.lista_reservas);
+        btn_add_reservation = (FloatingActionButton) findViewById(R.id.btn_add_reservation);
 
         reservation_list = new ArrayList<>();
         reservation_list.add("Martes, 5 de diciembre");
@@ -36,6 +43,17 @@ public class MenuActivity extends AppCompatActivity {
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reservation_list);
         list.setAdapter(adapter);
+
+        btn_add_reservation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Write a message to database
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference(String.format("Reservation %d", id));
+                myRef.setValue(id);
+                id++;
+            }
+        });
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
