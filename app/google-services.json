@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "158425224773",
+    "firebase_url": "https://paddlebookingapp.firebaseio.com",
+    "project_id": "paddlebookingapp",
+    "storage_bucket": "paddlebookingapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158425224773:android:9d6ff4c8b7bc2d02",
+        "android_client_info": {
+          "package_name": "upc.eseiaat.pma.paddlebookingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158425224773-6t96qmjlckpbhau16alge7igf3lgikoi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "upc.eseiaat.pma.paddlebookingapp",
+            "certificate_hash": "1c530ad2f03509c4e491d0c868cfa807918018dd"
+          }
+        },
+        {
+          "client_id": "158425224773-d6ikkc6ik9mh4mib1tirktejjd7bv12g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASidwE91rIpVsa17YxoCtLv4QTv-2KWk4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "158425224773-d6ikkc6ik9mh4mib1tirktejjd7bv12g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

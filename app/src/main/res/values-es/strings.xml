@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PaddleBookingApp</string>
+    <string name="edit_profile">Editar mi perfil</string>
+    <string name="date_reservation">Hora y Día</string>
+    <string name="player_1">Jugador 1</string>
+    <string name="player_2">Jugador 2</string>
+    <string name="cancel">Cancelar</string>
+    <string name="add_reservation">Añadir una reserva</string>
+    <string name="confirm">Confirmar</string>
+    <string name="message">¿Está seguro de que quiere cancelar esta reserva?</string>
+    <string name="cancel_reservation">Cancelar reserva</string>
+    <string name="cancelled">Reserva cancelada</string>
+    <string name="erase">Eliminar reserva</string>
+</resources>
