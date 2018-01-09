@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,22 +25,25 @@ public class MenuActivity extends AppCompatActivity {
     private String player_1_data="Julia";
     private String player_2_data="Marta";
     private int pos;
-    private int id=0;
-    private FloatingActionButton btn_add_reservation;
+
+    DatabaseReference databaseReservations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        databaseReservations = FirebaseDatabase.getInstance().getReference("reservations");
+
         ListView list = (ListView) findViewById(R.id.lista_reservas);
-        btn_add_reservation = (FloatingActionButton) findViewById(R.id.btn_add_reservation);
+        FloatingActionButton btn_add_reservation = (FloatingActionButton) findViewById(R.id.btn_add_reservation);
 
         reservation_list = new ArrayList<>();
-        reservation_list.add("Martes, 5 de diciembre");
+
+        /*reservation_list.add("Martes, 5 de diciembre");
         reservation_list.add("Miércoles, 6 de diciembre");
         reservation_list.add("Jueves, 7 de diciembre");
-        reservation_list.add("Viernes, 8 de diciembre");
+        reservation_list.add("Viernes, 8 de diciembre");*/
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reservation_list);
         list.setAdapter(adapter);
@@ -48,13 +52,19 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Write a message to database
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference(String.format("Reservation %d", id));
-                myRef.setValue(id);
-                myRef.child(String.format("hora %d", id)).setValue(id);
-                id++;
+                /*FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Reservations list");
+                myRef.setValue("Reservations list");
+                myRef.child(String.format("Reservation %d", id)).setValue(id);
+                myRef.child(String.format("Hour %d", id)).setValue(id);
+                myRef.child(String.format("Day %d", id)).setValue(id);
+                myRef.child(String.format("User %d", id)).setValue(id);
+                id++;*/
+
+                addReservation();
             }
         });
+
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -95,5 +105,20 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 }
         }
+    }
+
+    private void addReservation() {
+
+        int hour = 0;
+        String day = "Monday";
+        String month = "May";
+        String id = databaseReservations.push().getKey();
+        String user_id = "Whatever";
+
+        Reservations reservation = new Reservations(id, hour, day, month, user_id);
+
+        databaseReservations.child(id).setValue(reservation);
+
+        Toast.makeText(this, "Reservation added", Toast.LENGTH_SHORT).show();
     }
 }
