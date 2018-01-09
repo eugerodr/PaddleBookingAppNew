@@ -40,27 +40,12 @@ public class MenuActivity extends AppCompatActivity {
 
         reservation_list = new ArrayList<>();
 
-        /*reservation_list.add("Martes, 5 de diciembre");
-        reservation_list.add("Miércoles, 6 de diciembre");
-        reservation_list.add("Jueves, 7 de diciembre");
-        reservation_list.add("Viernes, 8 de diciembre");*/
-
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, reservation_list);
         list.setAdapter(adapter);
 
         btn_add_reservation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Write a message to database
-                /*FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("Reservations list");
-                myRef.setValue("Reservations list");
-                myRef.child(String.format("Reservation %d", id)).setValue(id);
-                myRef.child(String.format("Hour %d", id)).setValue(id);
-                myRef.child(String.format("Day %d", id)).setValue(id);
-                myRef.child(String.format("User %d", id)).setValue(id);
-                id++;*/
-
                 addReservation();
             }
         });
@@ -113,11 +98,12 @@ public class MenuActivity extends AppCompatActivity {
         String day = "Monday";
         String month = "May";
         String id = databaseReservations.push().getKey();
-        String user_id = "Whatever";
+        String user1_id = "Whatever";
+        String user2_id = "Whatever";
 
         if (!hour.isEmpty() && !day.isEmpty() && !month.isEmpty()) {
 
-            Reservations reservation = new Reservations(id, hour, day, month, user_id);
+            Reservations reservation = new Reservations(id, hour, day, month, user1_id, user2_id);
             databaseReservations.child(id).setValue(reservation);
 
             Toast.makeText(this, R.string.added_reservation, Toast.LENGTH_SHORT).show();
