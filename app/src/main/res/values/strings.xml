@@ -11,4 +11,6 @@
     <string name="cancel">Cancel</string>
     <string name="cancelled">Reservation cancelled</string>
     <string name="erase">Remove reservation</string>
+    <string name="missing_data">Please, complete all the fields</string>
+    <string name="added_reservation">Reservation added</string>
 </resources>

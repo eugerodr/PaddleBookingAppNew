@@ -7,7 +7,7 @@ package upc.eseiaat.pma.paddlebookingapp;
 public class Reservations {
 
     String reservationId;
-    int reservationHour;
+    String reservationHour;
     String reservationDay;
     String reservationMonth;
     String user_id;
@@ -16,7 +16,7 @@ public class Reservations {
 
     }
 
-    public Reservations(String reservation_id, int reservation_hour, String reservation_day, String reservation_month, String user_id) {
+    public Reservations(String reservation_id, String reservation_hour, String reservation_day, String reservation_month, String user_id) {
         this.reservationId = reservation_id;
         this.reservationHour = reservation_hour;
         this.reservationDay = reservation_day;
@@ -28,7 +28,7 @@ public class Reservations {
         return reservationId;
     }
 
-    public int getReservationHour() {
+    public String getReservationHour() {
         return reservationHour;
     }
 

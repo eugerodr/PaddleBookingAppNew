@@ -12,4 +12,6 @@
     <string name="cancel_reservation">Cancelar reserva</string>
     <string name="cancelled">Reserva cancelada</string>
     <string name="erase">Eliminar reserva</string>
+    <string name="missing_data">Por favor, complete todos los campos</string>
+    <string name="added_reservation">Reserva añadida</string>
 </resources>
